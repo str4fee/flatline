@@ -189,7 +189,7 @@ do
                 elseif k == 'To' then
                     self:_updatePosition()
                 elseif k == 'Transparency' then
-                    self._frame.BackgroundTransparency = v
+                    self._frame.BackgroundTransparency = _mathclamp(1 - v, 0, 1)
                 elseif k == 'Visible' then
                     self._frame.Visible = v
                 elseif k == 'ZIndex' then
@@ -324,7 +324,6 @@ do
                     self._frame._stroke.Thickness = _mathmax(v, 1)
                     self:_updateRadius()
                 elseif k == 'Transparency' then
-                    self._frame._stroke.Transparency = v
                     if props.Filled then
                         self._frame.BackgroundTransparency = v
                     end
@@ -659,7 +658,6 @@ do
                     frame._stroke.Thickness = v
                     self:_updateScale()
                 elseif k == 'Transparency' then
-                    frame._stroke.Transparency = v
                     if props.Filled then
                         frame.BackgroundTransparency = v
                     end
